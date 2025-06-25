@@ -12,6 +12,15 @@ class FocusTimer {
         this.resetBtn = document.getElementById('resetBtn');
         this.add5Btn = document.getElementById('add5Btn');
 
+        // Progress ring setup
+        this.progressCircle = document.querySelector('.progress-ring__circle');
+        this.radius = 150;
+        this.circumference = 2 * Math.PI * this.radius;
+        if (this.progressCircle) {
+            this.progressCircle.style.strokeDasharray = `${this.circumference} ${this.circumference}`;
+            this.progressCircle.style.strokeDashoffset = this.circumference;
+        }
+
         this.initializeEventListeners();
         this.updateDisplay();
     }
@@ -102,6 +111,13 @@ class FocusTimer {
         const minutes = Math.floor(this.timeLeft / 60);
         const seconds = this.timeLeft % 60;
         this.timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        // Update progress ring
+        if (this.progressCircle) {
+            const percent = this.timeLeft / this.originalTime;
+            const offset = this.circumference * (1 - percent);
+            this.progressCircle.style.strokeDashoffset = offset;
+        }
     }
 }
 
