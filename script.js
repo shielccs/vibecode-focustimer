@@ -97,6 +97,7 @@ class FocusTimer {
 
     addFiveMinutes() {
         this.timeLeft += 5 * 60;
+        this.originalTime += 5 * 60;
         this.updateDisplay();
     }
 
