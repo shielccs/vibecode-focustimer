@@ -8,12 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Focus Timer!</h1>
         <div class="timer">
+            <svg class="progress-ring" width="320" height="320">
+                <circle
+                  class="progress-ring__circle"
+                  stroke="#fff"
+                  stroke-width="12"
+                  fill="transparent"
+                  r="150"
+                  cx="160"
+                  cy="160"
+                />
+            </svg>
             <div class="time-display" id="timeDisplay">25:00</div>
         </div>
         <div class="controls">
-            <button id="startPauseBtn" class="btn start">Start</button>
+            <button id="startPauseBtn" class="btn start">Play</button>
             <button id="stopBtn" class="btn stop" disabled>Stop</button>
             <button id="resetBtn" class="btn reset">Reset</button>
             <button id="add5Btn" class="btn add5">+5 min</button>
